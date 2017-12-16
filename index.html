@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="scripts/mavo.js"></script>
+    <link rel="stylesheet" href="styles/mavo.css">
+    <link rel="stylesheet" href="styles/main.css">
+  </head>
+  <body mv-app="portfolio" mv-storage="https://github.com/caraya/mavodata/data">
+
+    <div class="projects">
+      <section typeof="Project" mv-multiple class="project-card">
+        <h2 property="name" mv-default="Default Project Name"></h2>
+
+        <fieldset>
+          <legend>Project Description</legend>
+          <textarea property="description" mv-default="Project Description"></textarea>
+        </fieldset>
+
+        <fieldset>
+          <legend>Project Chronology</legend>
+          <label for="dateStarted">Date Started</label>
+          <input type="text" id="dateStarted" name="dateStarted" value="" mv-default=[date($now)] property="Date Started">
+          <label for="dateEnded">Date Ended</label>
+          <input type="text" id="dateEnded" name="dateEnded" value="" mv-default="In Progress"
+            property="Date Ended">
+        </fieldset>
+
+
+        <fieldset>
+          <legend>Project Status</legend>
+            <select property class="status">
+              <option selected>Idea</option>
+              <option>Draft</option>
+              <option>In Development</option>
+              <option>Completed</option>
+              <option>Published</option>
+            </select>
+        </fieldset>
+
+        <fieldset>
+          <legend>Project Type</legend>
+            <select property class="type">
+              <option selected>Code</option>
+              <option>Writing</option>
+              <option>Research Report</option>
+              <option>Mixed</option>
+              <option>Other</option>
+            </select>
+        </fieldset>
+
+        <fieldset class="links">
+          <legend>Links</legend>
+
+          <label for="codeURL">Code</label>
+          <input type="text" id="codeURL" name="codeURL" value="" mv-default="N/A" property="Code URL">
+
+          <label for="writeupURL">Writeup URL</label>
+          <input type="text" id="writeupURL" name="writeupURL" value="" mv-default="N/A" property="Writeup URL">
+
+          <label for="otherURL">Other URL</label>
+          <input type="text" id="otherURL" name="otherURL" value="" mv-default="N/A" property="Other URL">
+        </fieldset>
+
+        <fieldset>
+          <legend>Project Notes</legend>
+          <textarea property="notes" mv-default="Project Notes"></textarea>
+        </fieldset>
+
+    </div>
+
+  </body>
+</html>
