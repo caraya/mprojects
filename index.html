@@ -5,18 +5,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="scripts/mavo.js"></script>
+    <script src="scripts/mavo-markdown.js"></script>
     <link rel="stylesheet" href="styles/mavo.css">
     <link rel="stylesheet" href="styles/main.css">
   </head>
   <body mv-app="portfolio" mv-storage="https://github.com/caraya/mavodata/data">
 
     <div class="projects">
-      <section typeof="Project" mv-multiple class="project-card">
+      <section typeof="Project" mv-multiple class="project-card" mv-plugins="markdown">
         <h2 property="name" mv-default="Default Project Name"></h2>
 
         <fieldset>
           <legend>Project Description</legend>
-          <textarea property="description" mv-default="Project Description"></textarea>
+          <div property="description" mv-default="Project Description" class="markdown"></div>
         </fieldset>
 
         <fieldset>
@@ -66,7 +67,7 @@
 
         <fieldset>
           <legend>Project Notes</legend>
-          <textarea property="notes" mv-default="Project Notes"></textarea>
+          <div property="notes" mv-default="Project Notes" class="markdown"></div>
         </fieldset>
 
       </section>
