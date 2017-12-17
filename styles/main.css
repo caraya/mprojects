@@ -1,25 +1,27 @@
 .projects {
-  display: flex;
-  flex-flow: row;
-  flex-wrap: wrap;
+    display: flex;
+    flex-flow: row;
+    flex-wrap: wrap;
 }
+
 .project-card {
-  margin: 2em;
-  padding: 1em;
   border: 1px solid navy;
   border-radius: 10px;
+  margin: 2em;
+  padding: 1em;
+  width: 400px;
 }
 
 label {
-  font-weight: 700;
+    font-weight: 700;
 }
 
 .links {
-  display: flex;
-  flex-direction: column;
+    display: flex;
+    flex-direction: column;
 }
 
 .links input {
-  width: 100%;
-  margin-bottom: 1em;
+    width: 100%;
+    margin-bottom: 1em;
 }
