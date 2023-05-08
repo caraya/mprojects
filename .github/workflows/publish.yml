@@ -3,10 +3,10 @@ name: Publish
 on:
   push:
     branches:
-      - "master"
+      - 'master'
   pull_request:
     branches:
-      - "master"
+      - 'master'
 
 jobs:
   publish:
@@ -27,4 +27,4 @@ jobs:
         known_hosts: unnecessary
 
     - name: Deploy with rsync
-      run: rsync -avz --exclude={"projects.json"} ./ ${{ secrets.SSH_USERNAME }}@${{ secrets.SSH_HOST }}
+      run: rsync -avz --exclude={'projects.json','.git'} ./ ${{ secrets.SSH_USERNAME }}@${{ secrets.SSH_HOST }}
