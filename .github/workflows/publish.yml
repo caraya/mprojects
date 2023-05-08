@@ -1,0 +1,30 @@
+name: Publish
+
+on:
+  push:
+    branches:
+      - "master"
+  pull_request:
+    branches:
+      - "master"
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: Adding Known Hosts
+      run: |
+        mkdir ~/.ssh/
+        ssh-keyscan -H ${{ secrets.SSH_HOST }}  >> ~/.ssh/known_hosts
+
+    - name: Install SSH Key
+      uses: shimataro/ssh-key-action@v2
+      with:
+        key: ${{ secrets.SSH_PRIVATE_KEY }}
+        known_hosts: unnecessary
+
+    - name: Deploy with rsync
+      run: rsync -avz --exclude={"projects.json"} ./ ${{ secrets.SSH_USERNAME }}@${{ secrets.SSH_HOST }}
